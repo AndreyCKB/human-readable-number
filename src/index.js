@@ -16,8 +16,8 @@ module.exports = function toReadable (number) {
     if (number < 100) return numberLessThanOneHundred(number);
 
     const firstDigit = Math.floor(number / 100);
-    const otherDigitsWord = number % 100 > 0 ? ' ' + numberLessThanOneHundred(number - firstDigit * 100) : '';
-    return `${mapNumberToWord[firstDigit]} hundred${otherDigitsWord}`    
+    const remainderDivision = number % 100; 
+    return `${mapNumberToWord[firstDigit]} hundred${remainderDivision > 0 ? ' ' + numberLessThanOneHundred(remainderDivision) : ''}`
 }
 
 function numberLessThanOneHundred(number){
